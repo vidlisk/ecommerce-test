@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "44699bdd-d327-48d5-83de-4ed3319883a9",
+		"name": "ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "45685171"
+	},
+	"item": [
+		{
+			"name": "登录",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(pm.response.text());\r",
+							"pm.environment.set(\"jwt_token\", data.data);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}/loginWithJwt?userName=imooc&password=12345678",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"loginWithJwt"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "imooc"
+						},
+						{
+							"key": "password",
+							"value": "12345678"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取购物车",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "jwt_token",
+						"value": "{{jwt_token}}",
+						"type": "text"
+					}
+				],
+				"url": "http://{{ip}}/cart/list"
+			},
+			"response": []
+		},
+		{
+			"name": "添加到购物车",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "jwt_token",
+						"value": "{{jwt_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "count",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "productId",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://{{ip}}/cart/add"
+			},
+			"response": []
+		},
+		{
+			"name": "从购物车删除",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "jwt_token",
+						"value": "{{jwt_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "productId",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://{{ip}}/cart/delete"
+			},
+			"response": []
+		}
+	]
+}
