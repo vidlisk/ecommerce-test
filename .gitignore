@@ -9,5 +9,5 @@ __pycache__/
 
 # JMeter & Allure
 *.log
-/tests/report/allure_raw/
-/tests/report/allure_html/
+/report/allure_raw/
+/report/allure_html/
