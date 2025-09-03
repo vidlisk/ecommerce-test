@@ -11,7 +11,8 @@
 ```bash
 git clone ...
 cd ecommerce-test
-python -m venv venv && venv\Scripts\activate
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
 pytest
 allure generate report/allure_raw -o report/allure_html --clean
