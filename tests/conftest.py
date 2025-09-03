@@ -14,3 +14,9 @@ def get_login_token():
     data = json.loads(login_response.text)
     jwt_token = data["data"]
     return jwt_token
+
+# 在 pytest 收集测试用例时，将 Unicode 编码转换为可读中文。
+def pytest_collection_modifyitems(items):
+    for item in items:
+        item.name = item.name.encode("utf-8").decode("unicode_escape")
+        item._nodeid = item.nodeid.encode("utf-8").decode("unicode_escape")
