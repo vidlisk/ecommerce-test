@@ -10,7 +10,7 @@
 
 ```bash
 git clone ...
-cd ecommerce-auto-test
+cd ecommerce-test
 python -m venv venv && venv\Scripts\activate
 pip install -r requirements.txt
 pytest
