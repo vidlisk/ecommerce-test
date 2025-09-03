@@ -1,1 +1,0 @@
-[{"uid":"f527a6fa185c08a5","name":"test_excel_login[编号-标题-请求接口类别-请求地址-请求方式-是否需要登录-输入数据-数据格式-期望结果1]","time":{"start":1756864350999,"stop":1756864350999,"duration":0},"status":"passed","severity":"normal"},{"uid":"6b0aab7811bc8fe8","name":"test_excel_cart_add","time":{"start":1756864350644,"stop":1756864350741,"duration":97},"status":"failed","severity":"normal"}]
