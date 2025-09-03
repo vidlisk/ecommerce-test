@@ -15,7 +15,7 @@ def get_token(get_login_token):
 def get_params():
     return ue.fetch_excel_data("购物车")
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_excel_cart_add(get_token,get_params):
     params = get_params
     # print(params)
